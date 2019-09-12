@@ -1,0 +1,18 @@
+pipeline{
+agent any
+environment{
+PATH=" /usr/local/src/apache-maven:$PATH"     
+           }
+stages{
+stage{"git checkout"){
+steps{
+git credentials:'github',url:'https://github.com/narasimhana/india/master/murali.txt
+                    }
+}
+stage("maven build"){
+ steps{
+  sh "mvn clean package"
+        }
+   }
+       }
+}
